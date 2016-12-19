@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: hello-gmom_development
+  pool: 5
+  username: hello_gmom
+  password: whatevs
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: hello-gmom_test
+  pool: 5
+  username: hello_gmom
+  password: whatevs
