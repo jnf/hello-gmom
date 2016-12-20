@@ -29,7 +29,10 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pg', '~> 0.19.0'
 
 # Use haml instead of erb
-gem "haml-rails", "~> 0.9"
+gem 'haml-rails', '~> 0.9'
+
+# get messages from twilio
+gem 'twilio-ruby', '~> 4.13.0'
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
