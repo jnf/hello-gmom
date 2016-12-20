@@ -34,6 +34,9 @@ gem 'haml-rails', '~> 0.9'
 # get messages from twilio
 gem 'twilio-ruby', '~> 4.13.0'
 
+# load ENV values from .env
+gem 'dotenv-rails', '~> 2.1.1'
+
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
 end
