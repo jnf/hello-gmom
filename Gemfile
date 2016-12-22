@@ -38,7 +38,10 @@ gem 'twilio-ruby', '~> 4.13.0'
 gem 'dotenv-rails', '~> 2.1.1'
 
 # use paperclip to process and persist images
-gem "paperclip", "~> 5.0.0"
+gem 'paperclip', '~> 5.0.0'
+
+# values gives us immutable objects
+gem 'values', '~> 1.8.0'
 
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
