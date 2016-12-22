@@ -2,7 +2,8 @@ class Message < ApplicationRecord
   belongs_to :sender
 
   has_attached_file :image,
-    styles: { medium: "400x400>", small: "200x200>" },
+    path: ':rails_root/public/system/:class/:id.:extension',
+    styles: { original: ["1500x1500>", :jpg] },
     default_url: "/images/:style/missing.png"
 
   validates :sender, presence: true
