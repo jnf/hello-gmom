@@ -37,6 +37,9 @@ gem 'twilio-ruby', '~> 4.13.0'
 # load ENV values from .env
 gem 'dotenv-rails', '~> 2.1.1'
 
+# use paperclip to process and persist images
+gem "paperclip", "~> 5.0.0"
+
 group :development, :test do
   gem 'pry-rails', '~> 0.3.4'
 end
