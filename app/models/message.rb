@@ -5,5 +5,6 @@ class Message < ApplicationRecord
     styles: { medium: "400x400>", small: "200x200>" },
     default_url: "/images/:style/missing.png"
 
+  validates :sender, presence: true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 end
