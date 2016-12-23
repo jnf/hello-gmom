@@ -8,4 +8,8 @@ class Message < ApplicationRecord
 
   validates :sender, presence: true
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  def self.for_gmom
+    self.includes(:sender).order(created_at: :desc).limit(25)
+  end
 end
