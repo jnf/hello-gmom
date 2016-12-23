@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'charter';
+  font-family: 'Charter';
   src: url('/fonts/charter_bold_italic-webfont.eot');
   src: url('/fonts/charter_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
        url('/fonts/charter_bold_italic-webfont.woff') format('woff');
@@ -8,7 +8,7 @@
 }
 
 @font-face {
-  font-family: 'charter';
+  font-family: 'Charter';
   src: url('/fonts/charter_bold-webfont.eot');
   src: url('/fonts/charter_bold-webfont.eot?#iefix') format('embedded-opentype'),
        url('/fonts/charter_bold-webfont.woff') format('woff');
@@ -17,7 +17,7 @@
 }
 
 @font-face {
-  font-family: 'charter';
+  font-family: 'Charter';
   src: url('/fonts/charter_italic-webfont.eot');
   src: url('/fonts/charter_italic-webfont.eot?#iefix') format('embedded-opentype'),
        url('/fonts/charter_italic-webfont.woff') format('woff');
@@ -26,10 +26,32 @@
 }
 
 @font-face {
-  font-family: 'charter';
+  font-family: 'Charter';
   src: url('/fonts/charter_regular-webfont.eot');
   src: url('/fonts/charter_regular-webfont.eot?#iefix') format('embedded-opentype'),
        url('/fonts/charter_regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+}
+
+html {
+  font: normal normal 60px/1.35 'Charter', 'Cambria', serif;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: 'kern=1';
+  -moz-font-feature-settings: 'kern' 1;
+  -webkit-font-feature-settings: 'kern' 1;
+  -o-font-feature-settings: 'kern' 1;
+  -ms-font-feature-settings: 'kern' 1;
+  font-feature-settings: 'kern' 1;
+
+  text-rendering: optimizeLegibility;
+  -moz-font-feature-settings: 'liga=1';
+  -moz-font-feature-settings: 'liga' 1;
+  -webkit-font-feature-settings: 'liga' 1;
+  -o-font-feature-settings: 'liga' 1;
+  -ms-font-feature-settings: 'liga' 1;
+  font-feature-settings: 'liga' 1;
 }

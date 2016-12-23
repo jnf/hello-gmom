@@ -1,0 +1,53 @@
+$background-color: lighten(#ffdab9, 5%);
+$message-color: #222;
+
+body { background: $background-color; color: $message-color; }
+h1 { font-size: 1.4rem; }
+p { margin: 0; }
+
+#messages {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+}
+
+.message {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+
+  position: absolute;
+  top: 0; right: 5vw; bottom: 0; left: 5vw;
+  margin: auto;
+
+  &:first-of-type,
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+.sender-image {
+  border: 1px solid darken($background-color, 5%);
+  float: left;
+  height: 50vh;
+  margin: 25vh 5vw 25vh 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+.message-body {
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.message-location,
+.message-date {
+  font-size: 0.5rem;
+}
+
+.sender-name {
+  margin: 5vh 0 0;
+}
+.has-image { display: none; }
