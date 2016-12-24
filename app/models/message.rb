@@ -1,4 +1,5 @@
 class Message < ApplicationRecord
+  FOR_CLIENT_PARAMS = Value.new(:body, :location, :image)
   belongs_to :sender
 
   has_attached_file :image,
@@ -11,5 +12,9 @@ class Message < ApplicationRecord
 
   def self.for_gmom
     self.includes(:sender).order(created_at: :desc).limit(25)
+  end
+
+  def for_client
+    FOR_CLIENT_PARAMS.with body: body, location: location, image: image.url
   end
 end

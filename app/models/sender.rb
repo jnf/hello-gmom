@@ -1,4 +1,6 @@
 class Sender < ApplicationRecord
+  FOR_CLIENT_PARAMS = Value.new(:name, :avatar)
+
   has_many :messages
 
   has_attached_file :avatar,
@@ -10,5 +12,9 @@ class Sender < ApplicationRecord
 
   def self.from_number(number)
     where(number: number).first
+  end
+
+  def for_client
+    FOR_CLIENT_PARAMS.with name: name, avatar: avatar.url
   end
 end
