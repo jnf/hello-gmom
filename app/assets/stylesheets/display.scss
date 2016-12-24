@@ -14,25 +14,25 @@ p { margin: 0; }
 
 .message {
   opacity: 0;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
 
   position: absolute;
   top: 0; right: 5vw; bottom: 0; left: 5vw;
   margin: auto;
 
-  &:first-of-type,
   &.is-visible {
     opacity: 1;
+    transition: all 0.5s ease-in-out 1s;
   }
 }
 
 .sender-image {
-  border: 1px solid darken($background-color, 5%);
   float: left;
   height: 50vh;
   margin: 25vh 5vw 25vh 0;
 
   img {
+    border: 1px solid darken($background-color, 5%);
     width: 100%;
   }
 }
@@ -50,4 +50,5 @@ p { margin: 0; }
 .sender-name {
   margin: 5vh 0 0;
 }
+
 .has-image { display: none; }
