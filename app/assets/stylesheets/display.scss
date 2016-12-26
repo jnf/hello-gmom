@@ -32,9 +32,13 @@ p { margin: 0; }
   margin: 25vh 5vw 25vh 0;
 
   img {
-    border: 1px solid darken($background-color, 5%);
+    border: 1px solid darken($background-color, 15%);
     width: 100%;
   }
+}
+
+.sender-name {
+  margin: 5vh 0 0;
 }
 
 .message-body {
@@ -47,8 +51,57 @@ p { margin: 0; }
   font-size: 0.5rem;
 }
 
-.sender-name {
-  margin: 5vh 0 0;
-}
+.message.has-image {
+  color: #fff;
+  left: 0;
+  right: 0;
 
-.has-image { display: none; }
+  .message-sender {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 28vh;
+  }
+
+  .sender-image {
+    float: none;
+    position: absolute;
+    top: 1vmin; left: 1vmin;
+    margin: 0;
+    width: 15vmin;
+  }
+
+  .sender-name {
+    position: absolute;
+    top: -0.3rem;
+    left: 19vmin;
+    margin: 0;
+  }
+
+  .message-body {
+    position: absolute;
+    top: 1.3rem;
+    left: 19vmin;
+  }
+
+  .message-location {
+    position: absolute;
+    bottom: 1vmin;
+    left: 1vmin;
+  }
+
+  .message-image {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: auto;
+
+    img {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      margin: auto;
+      max-width: 100%;
+    }
+  }
+}

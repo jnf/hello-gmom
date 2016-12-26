@@ -4,6 +4,7 @@ class Message < ApplicationRecord
 
   has_attached_file :image,
     path: ':rails_root/public/system/:class/:id.:extension',
+    url: '/system/:class/:id.:extension',
     styles: { original: ["1500x1500>", :jpg] },
     default_url: "/images/:style/missing.png"
 
