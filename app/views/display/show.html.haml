@@ -1,1 +1,9 @@
 #messages= render partial: 'message', collection: @messages
+%script#message-template{ type: 'x-template' }
+  .message-image
+  .message-sender
+    .sender-image
+    %h1.sender-name
+    .message-content
+      %p.message-body
+      %p.message-location

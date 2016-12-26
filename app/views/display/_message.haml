@@ -1,22 +1,10 @@
-- if message.image.present?
-  .message.has-image
-    .message-image= image_tag message.image
-    .message-sender
-      .sender-image= image_tag message.sender.avatar
-      %h1.sender-name= "#{ message.sender.name } says:"
-      .message-content
-        %p.message-body
-          = message.body
-        %p.message-location
-          = message.created_at.localtime.to_s :normal
-          = message.location
-- else
-  .message
+%div{ class: "message #{ message.image? ? 'has-image' : '' }" }
+  .message-image= image_tag message.image if message.image?
+  .message-sender
     .sender-image= image_tag message.sender.avatar
     %h1.sender-name= "#{ message.sender.name } says:"
     .message-content
-      %p.message-body
-        = message.body
+      %p.message-body= message.body
       %p.message-location
         = message.created_at.localtime.to_s :normal
         = message.location

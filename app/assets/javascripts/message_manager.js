@@ -1,18 +1,23 @@
-MessageManager = function (list) {
+MessageManager = function (container) {
   // private properties
-  var messageList = list
-  var rotationDelay = 2000 // how long (in ms) a message is shown
+  var messageList = container.children
+  var rotationDelay = 3000 // how long (in ms) a message is shown
   var currentIndex = 0
   var interval
 
   // methods that need to access private data
   this.received = function (data) { // new message received!
-    console.log(data) // woooooooo
+    // plug data into a message template
+    var new_message = this.templatize(data)
+
+    // insert new message at front of list
+    container.insertBefore(new_message, container.firstChild)
+
+    // remove last message in the list, if we already have 25 messages
+    if (messageList.length > 25) container.removeChild(container.lastChild)
   }
 
   this.rotate = function () {
-    var hasClass = function (message) { return message.classList.contains(this.stateClasses.visible) }
-
     interval = setInterval(function () {
       var nextIndex = currentIndex >= messageList.length - 1 ? 0 : currentIndex + 1
 
@@ -47,5 +52,25 @@ MessageManager.prototype = {
 
   hide: function (message) {
     message.classList.remove(this.stateClasses.visible)
+  },
+
+  templatize: function (data) {
+    var template = document.getElementById('message-template').innerHTML
+    var message = document.createElement('div')
+
+    message.innerHTML = template
+    message.classList.add('message')
+
+    if (data.message.image) {
+      message.classList.add('has-image')
+      message.getElementsByClassName('message-image')[0].innerHTML = "<img src='" + data.message.image + "'>"
+    }
+
+    message.getElementsByClassName('sender-image')[0].innerHTML = "<img src='" + data.sender.avatar + "'>"
+    message.getElementsByClassName('sender-name')[0].innerHTML = data.sender.name + ' says:'
+    message.getElementsByClassName('message-body')[0].innerHTML = data.message.body
+    message.getElementsByClassName('message-location')[0].innerHTML = data.message.created_at + ' ' + data.message.location
+
+    return message
   }
 }
