@@ -13,3 +13,11 @@ test:
   pool: 5
   username: hello_gmom
   password: whatevs
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: hello-gmom_production
+  pool: 5
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
