@@ -1,8 +1,7 @@
 MessageManager = function (container) {
   // private properties
-  var messageList = container.children
-  var rotationDelay = 3000 // how long (in ms) a message is shown
-  var currentIndex = 0
+  var rotationDelay = 45000 // how long (in ms) a message is shown
+  var show_new = false
   var interval
 
   // methods that need to access private data
@@ -11,19 +10,22 @@ MessageManager = function (container) {
     var new_message = this.templatize(data)
 
     // insert new message at front of list
-    container.insertBefore(new_message, container.firstChild)
+    container.insertBefore(new_message, this.firstMessage())
 
     // remove last message in the list, if we already have 25 messages
-    if (messageList.length > 25) container.removeChild(container.lastChild)
+    if (container.children.length > 25) container.removeChild(this.lastMessage())
+
+    // be sure to show the new message next
+    show_new = true
   }
 
   this.rotate = function () {
     interval = setInterval(function () {
-      var nextIndex = currentIndex >= messageList.length - 1 ? 0 : currentIndex + 1
+      var nextMessage = show_new ? this.firstMessage() : this.nextMessage()
+      show_new = false
 
-      this.hide(messageList[currentIndex])
-      this.reveal(messageList[nextIndex])
-      currentIndex = nextIndex
+      this.hide(this.visibleMessage())
+      this.reveal(nextMessage)
 
     }.bind(this), rotationDelay)
   }
@@ -32,8 +34,24 @@ MessageManager = function (container) {
     clearInterval(interval)
   }
 
+  this.firstMessage = function () {
+    return container.querySelector('.' + this.classNames.message + ':first-child')
+  }
+
+  this.lastMessage = function () {
+    return container.querySelector('.' + this.classNames.message + ':last-child')
+  }
+
+  this.visibleMessage = function () {
+    return container.querySelector('.' + this.classNames.message + '.' + this.classNames.isVisible)
+  }
+
+  this.nextMessage = function () {
+    return this.visibleMessage().nextSibling || this.firstMessage()
+  }
+
   // reveal the first message
-  this.reveal(messageList[currentIndex])
+  this.reveal(this.firstMessage())
 
   // start the rotation
   this.rotate()
@@ -41,17 +59,19 @@ MessageManager = function (container) {
 
 MessageManager.prototype = {
   //public properties
-  stateClasses: {
-    visible: 'is-visible'
+  classNames: {
+    message: 'message',
+    isVisible: 'is-visible',
+    hasImage: 'has-image'
   },
 
   // methods that don't need access to private data
   reveal: function(message) {
-    message.classList.add(this.stateClasses.visible)
+    message.classList.add(this.classNames.isVisible)
   },
 
   hide: function (message) {
-    message.classList.remove(this.stateClasses.visible)
+    message.classList.remove(this.classNames.isVisible)
   },
 
   templatize: function (data) {
@@ -59,17 +79,17 @@ MessageManager.prototype = {
     var message = document.createElement('div')
 
     message.innerHTML = template
-    message.classList.add('message')
+    message.classList.add(this.classNames.message)
 
     if (data.message.image) {
-      message.classList.add('has-image')
-      message.getElementsByClassName('message-image')[0].innerHTML = "<img src='" + data.message.image + "'>"
+      message.classList.add(this.classNames.hasImage)
+      message.querySelector('.message-image').innerHTML = "<img src='" + data.message.image + "'>"
     }
 
-    message.getElementsByClassName('sender-image')[0].innerHTML = "<img src='" + data.sender.avatar + "'>"
-    message.getElementsByClassName('sender-name')[0].innerHTML = data.sender.name + ' says:'
-    message.getElementsByClassName('message-body')[0].innerHTML = data.message.body
-    message.getElementsByClassName('message-location')[0].innerHTML = data.message.created_at + ' ' + data.message.location
+    message.querySelector('.sender-image').innerHTML = "<img src='" + data.sender.avatar + "'>"
+    message.querySelector('.sender-name').innerHTML = data.sender.name + ' says:'
+    message.querySelector('.message-body').innerHTML = data.message.body
+    message.querySelector('.message-location').innerHTML = data.message.created_at + ' ' + data.message.location
 
     return message
   }
