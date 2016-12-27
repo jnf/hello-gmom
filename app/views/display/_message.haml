@@ -1,4 +1,4 @@
-%div{ class: "message #{ message.image? ? 'has-image' : '' }" }
+%div{ class: "message #{ message.image? ? 'has-image' : '' }" }><
   .message-image= image_tag message.image if message.image?
   .message-sender
     .sender-image= image_tag message.sender.avatar
