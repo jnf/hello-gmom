@@ -7,7 +7,7 @@ MessageManager = function (container) {
   // methods that need to access private data
   this.received = function (data) { // new message received!
     // plug data into a message template
-    var new_message = this.templatize(data)
+    var new_message = this.render(data)
 
     // insert new message at front of list
     container.insertBefore(new_message, this.firstMessage())
@@ -74,7 +74,7 @@ MessageManager.prototype = {
     message.classList.remove(this.classNames.isVisible)
   },
 
-  templatize: function (data) {
+  render: function (data) {
     var template = document.getElementById('message-template').innerHTML
     var message = document.createElement('div')
 
@@ -83,6 +83,7 @@ MessageManager.prototype = {
 
     if (data.message.image) {
       message.classList.add(this.classNames.hasImage)
+      message.classList.add(data.orientation)
       message.querySelector('.message-image').innerHTML = "<img src='" + data.message.image + "'>"
     }
 

@@ -1,5 +1,5 @@
 class Message < ApplicationRecord
-  FOR_CLIENT_PARAMS = Value.new(:body, :location, :image, :created_at)
+  FOR_CLIENT_PARAMS = Value.new(:body, :location, :image, :created_at, :orientation)
   belongs_to :sender
 
   has_attached_file :image,
@@ -21,7 +21,8 @@ class Message < ApplicationRecord
       body: body,
       location: location,
       image: image? ? image.url : nil,
-      created_at: created_at.localtime.to_s(:normal)
+      created_at: created_at.localtime.to_s(:normal),
+      orientation: image? ? orientation : ''
     })
   end
 
