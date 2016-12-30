@@ -51,7 +51,53 @@ p { margin: 0; }
   font-size: 0.5rem;
 }
 
-.message.has-image {
+.message.has-image.vertical {
+  left: 0;
+  right: 0;
+
+  .message-sender {
+    position: absolute;
+    top: 2vmin; right: 0; left: 45vw;
+  }
+
+  .sender-image {
+    float: left;
+    margin: 0 3vmin 0 0;
+    height: 15vmin;
+    width: 15vmin;
+  }
+
+  .sender-name {
+    margin-top: 0;
+  }
+
+  .message-image {
+    position: absolute;
+    top: 0; right: 55vw; bottom: 0; left: 0;
+    margin: auto;
+
+    img {
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      margin: auto;
+      max-height: 100%;
+    }
+  }
+
+  &:nth-child(even) {
+    .message-sender {
+      right: 45vw; left: 2vmin;
+    }
+
+    .message-image {
+      top: 0; right: 0; bottom: 0; left: 55vw;
+      img { left: auto; right: 0; }
+    }
+  }
+}
+
+.message.has-image.horizontal,
+.message.has-image.square {
   color: #fff;
   left: 0;
   right: 0;
