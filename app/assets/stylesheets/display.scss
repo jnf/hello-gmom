@@ -14,63 +14,56 @@ p { margin: 0; }
 
 .message {
   opacity: 0;
-  transition: all 0.5s ease-in-out;
-
   position: absolute;
-  top: 0; right: 5vw; bottom: 0; left: 5vw;
   margin: auto;
+  top: 2vmin; right: 2vmin; bottom: 2vmin; left: 2vmin;
+  transition: all 0.5s ease-in-out;
 
   &.is-visible {
     opacity: 1;
     transition: all 0.5s ease-in-out 1s;
   }
-}
-
-.sender-image {
-  float: left;
-  height: 50vh;
-  margin: 25vh 5vw 25vh 0;
-
-  img {
-    border: 1px solid darken($background-color, 15%);
-    width: 100%;
-  }
-}
-
-.sender-name {
-  margin: 5vh 0 0;
-}
-
-.message-body {
-  font-size: 1.1rem;
-  font-style: italic;
-}
-
-.message-location,
-.message-date {
-  font-size: 0.5rem;
-}
-
-.message.has-image.vertical {
-  left: 0;
-  right: 0;
 
   .message-sender {
     position: absolute;
-    top: 2vmin; right: 0; left: 45vw;
+    top: 50%; right: 60vw; bottom: auto; left: 0;
+    margin: auto;
+    transform: translateY(-50%);
+
+    .sender-image img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .sender-name {
+      margin: 0;
+      text-align: center;
+    }
   }
 
-  .sender-image {
-    float: left;
-    margin: 0 3vmin 0 0;
-    height: 15vmin;
-    width: 15vmin;
-  }
+  .message-content {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 40vw;
 
-  .sender-name {
-    margin-top: 0;
-  }
+    .message-body {
+      font-size: 1.1rem;
+      font-style: italic;
+    }
 
+    .message-location {
+      font-size: 0.5rem;
+      position: absolute;
+      top: auto; left: 0; right: 0; bottom: 0;
+      text-align: center;
+    }
+  }
+}
+
+.message.has-image {
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.message.vertical {
   .message-image {
     position: absolute;
     top: 0; right: 55vw; bottom: 0; left: 0;
@@ -84,58 +77,60 @@ p { margin: 0; }
     }
   }
 
-  &:nth-child(even) {
-    .message-sender {
-      right: 45vw; left: 2vmin;
-    }
+  .message-content { top: 2rem; left: 45vw; }
+  .message-sender {
+    top: 2vmin; right: 2vmin; bottom: auto; left: 45vw;
+    transform: none;
 
-    .message-image {
-      top: 0; right: 0; bottom: 0; left: 55vw;
-      img { left: auto; right: 0; }
+    .sender-name { display: inline-block; }
+    .sender-image {
+      float: left;
+      margin: 0 3vmin 0 0;
+      height: 15vmin;
+      width: 15vmin;
+
+      img { width: 100%; }
     }
   }
 }
 
-.message.has-image.horizontal,
-.message.has-image.square {
+.message.square,
+.message.horizontal {
   color: #fff;
-  left: 0;
-  right: 0;
+
+  .message-content {
+    top: 72vh; left: 0;
+  }
+
+  .message-body { margin-left: 36vw; }
+  .message-location {
+    display: none;
+  }
 
   .message-sender {
     background: rgba(0, 0, 0, 0.4);
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: auto; right: 0; bottom: 0; left: 0;
     height: 28vh;
-  }
-
-  .sender-image {
-    float: none;
-    position: absolute;
-    top: 1vmin; left: 1vmin;
-    margin: 0;
-    width: 15vmin;
+    transform: none;
   }
 
   .sender-name {
+    margin: 5.5vmin 0 0 17vmin;
+    width: 25vw;
+  }
+
+  .sender-image {
     position: absolute;
-    top: -0.3rem;
-    left: 19vmin;
+    bottom: 1vmin; left: 1vmin; top: 1vmin;
     margin: 0;
-  }
+    width: 15vmin;
 
-  .message-body {
-    position: absolute;
-    top: 1.3rem;
-    left: 19vmin;
-  }
-
-  .message-location {
-    position: absolute;
-    bottom: 1vmin;
-    left: 1vmin;
+    img {
+      display: block;
+      margin-top: 5.5vmin;
+      width: 100%;
+    }
   }
 
   .message-image {
