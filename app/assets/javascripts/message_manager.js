@@ -83,7 +83,7 @@ MessageManager.prototype = {
 
     if (data.message.image) {
       message.classList.add(this.classNames.hasImage)
-      message.classList.add(data.orientation)
+      message.classList.add(data.message.orientation)
       message.querySelector('.message-image').innerHTML = "<img src='" + data.message.image + "'>"
     }
 
