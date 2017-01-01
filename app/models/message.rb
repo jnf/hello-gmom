@@ -30,7 +30,9 @@ class Message < ApplicationRecord
 
   def define_orientation
     return unless image?
-    geo = Paperclip::Geometry.from_file(image)
+
+    file = image.queued_for_write[:original] || image
+    geo = Paperclip::Geometry.from_file(file.path)
     self.orientation = %w(vertical horizontal square).find do |orientation|
       geo.send orientation + '?'
     end
