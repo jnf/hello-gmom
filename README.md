@@ -31,7 +31,8 @@ Here are the values Rails expects to be in `.env`:
   1. Create and populate `.env`
   1. Update database seeds (`db/seeds.rb`)
   1. Update database credentials for development/test (`config/database.yml`) **or** set up a Postgres role to match what's already in the file. (`create role hello_gmom with createdb login password 'whatevs';`)
-1. Start the server (`rails server`)
+  1. Setup the database (`$ rake db:setup`)
+1. Start the server (`$ rails server`)
 
 ## Useful articles
 Here's a list of articles I referenced while working on this. Maybe they'll help you too.
