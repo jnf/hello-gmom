@@ -99,10 +99,16 @@ p { margin: 0; }
   color: #fff;
 
   .message-content {
-    top: 72vh; left: 0;
+    top: auto; left: 0;
+    height: 28vh;
   }
 
-  .message-body { margin-left: 36vw; }
+  .message-body {
+    margin-top: 14vh;
+    margin-left: 36vw;
+    transform: translateY(-50%);
+  }
+
   .message-location {
     display: none;
   }
