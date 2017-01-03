@@ -74,12 +74,13 @@ p { margin: 0; }
       top: 0; left: 0; bottom: 0;
       margin: auto;
       max-height: 100%;
+      max-width: 100%;
     }
   }
 
-  .message-content { top: 2rem; left: 45vw; }
+  .message-content { top: 2.5rem; left: 46vw; }
   .message-sender {
-    top: 2vmin; right: 2vmin; bottom: auto; left: 45vw;
+    top: 2vmin; right: 2vmin; bottom: auto; left: 46vw;
     transform: none;
 
     .sender-name { display: inline-block; }
@@ -122,8 +123,9 @@ p { margin: 0; }
   }
 
   .sender-name {
-    margin: 5.5vmin 0 0 17vmin;
+    margin: 14vh 0 0 17vmin;
     width: 25vw;
+    transform: translateY(-50%);
   }
 
   .sender-image {
@@ -134,7 +136,8 @@ p { margin: 0; }
 
     img {
       display: block;
-      margin-top: 5.5vmin;
+      margin-top: 14vh;
+      transform: translateY(-50%);
       width: 100%;
     }
   }
