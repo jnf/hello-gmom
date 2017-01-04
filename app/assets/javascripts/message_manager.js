@@ -88,7 +88,7 @@ MessageManager.prototype = {
     }
 
     message.querySelector('.sender-image').innerHTML = "<img src='" + data.sender.avatar + "'>"
-    message.querySelector('.sender-name').innerHTML = data.sender.name + ' says:'
+    message.querySelector('.sender-name').innerHTML = data.sender.name + ':'
     message.querySelector('.message-body').innerHTML = data.message.body
     message.querySelector('.message-location').innerHTML = data.message.created_at + ' ' + data.message.location
 
