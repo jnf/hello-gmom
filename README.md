@@ -42,3 +42,4 @@ Here's a list of articles I referenced while working on this. Maybe they'll help
 - [Capistrano & rails on Digital Ocean](https://www.digitalocean.com/community/tutorials/deploying-a-rails-app-on-ubuntu-14-04-with-capistrano-nginx-and-puma#step-7-—-deploying-your-rails-application)
 - [kiosk screen tutorial](https://www.danpurdy.co.uk/web-development/raspberry-pi-kiosk-screen-tutorial/)
 - [dealing with unwanted requests](http://datachomp.com/archives/nginx-block-php-requests/)
+- [enabling tls/https with letsencrypt and nginx](https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04)
