@@ -12,8 +12,10 @@ class Message < ApplicationRecord
 
   before_save :define_orientation
 
+  scope :has_body, -> { where.not(body: nil) }
+
   def self.for_gmom
-    self.includes(:sender).order(created_at: :desc).limit(25)
+    self.includes(:sender).has_body.order(created_at: :desc).limit(50)
   end
 
   def for_client

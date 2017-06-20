@@ -1,6 +1,6 @@
 MessageManager = function (container) {
   // private properties
-  var rotationDelay = 45000 // how long (in ms) a message is shown
+  var rotationDelay = 20000 // how long (in ms) a message is shown
   var show_new = false
   var interval
 
@@ -12,8 +12,8 @@ MessageManager = function (container) {
     // insert new message at front of list
     container.insertBefore(new_message, this.firstMessage())
 
-    // remove last message in the list, if we already have 25 messages
-    if (container.children.length > 25) container.removeChild(this.lastMessage())
+    // remove last message in the list, if we already have 50 messages
+    if (container.children.length > 50) container.removeChild(this.lastMessage())
 
     // be sure to show the new message next
     show_new = true
