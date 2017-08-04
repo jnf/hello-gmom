@@ -4,7 +4,10 @@ RedirectManager = function () {
   }
 
   this.received = function (data) {
-    console.log('redirect request!')
-    console.log(data)
+    if (data.to) {
+      window.location.href = data.to
+    } else {
+      console.log(data)
+    }
   }
 }
