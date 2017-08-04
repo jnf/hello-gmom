@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   controller :display do
     get 'show'
+    get ':sender', action: :by_sender
   end
 end
