@@ -7,7 +7,12 @@ senders = [
   {
     number: ENV['BAF_PHONE'],
     name: 'Brenna',
-    avatar: 'brennx0r.jpg'
+    avatar: 'baf.jpg'
+  },
+  {
+    number: '111111111',
+    name: 'Rosa',
+    avatar: 'rosa.jpg'
   }
 ]
 
