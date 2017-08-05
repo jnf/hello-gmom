@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     get ':sender', action: :by_sender, as: :show_sender
   end
 
-  get '/api/redirect/:name', to: 'redirects#incoming'
+  get '/api/redirect/(:name)', to: 'redirects#incoming'
 end

@@ -3,9 +3,10 @@ class RedirectsController < ApplicationController
 
   def incoming
     sender = Sender.from_name(params.fetch("name", nil))
+    path = sender ? show_sender_url(sender.name) : root_url
 
     # tell connected clients to redirect to the new stream
-    ActionCable.server.broadcast 'redirects', to: show_sender_url(sender.name)
+    ActionCable.server.broadcast 'redirects', to: path
 
     render xml: TWIML.redirect
   rescue Exception => e
