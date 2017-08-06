@@ -14,6 +14,10 @@ class Sender < ApplicationRecord
     where(number: number).first
   end
 
+  def self.from_name(name)
+    where(name: [name, name.titlecase]).first
+  end
+
   def for_client
     FOR_CLIENT_PARAMS.with name: name, avatar: avatar.url
   end

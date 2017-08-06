@@ -1,5 +1,6 @@
 $background-color: lighten(#ffdab9, 5%);
 $message-color: #222;
+$space: 0.5rem;
 
 body { background: $background-color; color: $message-color; }
 h1 { font-size: 1.4rem; }
@@ -13,145 +14,53 @@ p { margin: 0; }
 }
 
 .message {
+  display: flex;
+  justify-content: space-between;
   opacity: 0;
-  position: absolute;
-  margin: auto;
-  top: 2vmin; right: 2vmin; bottom: 2vmin; left: 2vmin;
   transition: all 0.5s ease-in-out;
+
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
 
   &.is-visible {
     opacity: 1;
-    transition: all 0.5s ease-in-out 1s;
-  }
-
-  .message-sender {
-    position: absolute;
-    top: 50%; right: 60vw; bottom: auto; left: 0;
-    margin: auto;
-    transform: translateY(-50%);
-
-    .sender-image img {
-      display: block;
-      margin: 0 auto;
-    }
-
-    .sender-name {
-      margin: 0;
-      text-align: center;
-    }
-  }
-
-  .message-content {
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 40vw;
-
-    .message-body {
-      font-size: 1.1rem;
-      font-style: italic;
-    }
-
-    .message-location {
-      font-size: 0.5rem;
-      position: absolute;
-      top: auto; left: 0; right: 0; bottom: 0;
-      text-align: center;
-    }
+    transition: all 0.5s ease-in-out;
   }
 }
 
-.message.has-image {
-  top: 0; right: 0; bottom: 0; left: 0;
+.message-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: $space;
 }
 
-.message.vertical {
-  .message-image {
-    position: absolute;
-    top: 0; right: 55vw; bottom: 0; left: 0;
-    margin: auto;
+.message-sender {
+  display: flex;
+  align-items: center;
 
-    img {
-      position: absolute;
-      top: 0; left: 0; bottom: 0;
-      margin: auto;
-      max-height: 100%;
-      max-width: 100%;
-    }
-  }
+  .sender-image {
+    height: 2.5rem;
+    margin: 0 $space 0 0;
 
-  .message-content { top: 2.5rem; left: 46vw; }
-  .message-sender {
-    top: 2vmin; right: 2vmin; bottom: auto; left: 46vw;
-    transform: none;
-
-    .sender-name { display: inline-block; }
-    .sender-image {
-      float: left;
-      margin: 0 3vmin 0 0;
-      height: 15vmin;
-      width: 15vmin;
-
-      img { width: 100%; }
-    }
-  }
-}
-
-.message.square,
-.message.horizontal {
-  color: #fff;
-
-  .message-content {
-    top: auto; left: 0;
-    height: 28vh;
-  }
-
-  .message-body {
-    margin-top: 14vh;
-    margin-left: 36vw;
-    transform: translateY(-50%);
-  }
-
-  .message-location {
-    display: none;
-  }
-
-  .message-sender {
-    background: rgba(0, 0, 0, 0.4);
-    position: absolute;
-    top: auto; right: 0; bottom: 0; left: 0;
-    height: 28vh;
-    transform: none;
+    img { height: 100%; }
   }
 
   .sender-name {
-    margin: 14vh 0 0 17vmin;
-    width: 25vw;
-    transform: translateY(-50%);
-  }
-
-  .sender-image {
-    position: absolute;
-    bottom: 1vmin; left: 1vmin; top: 1vmin;
     margin: 0;
-    width: 15vmin;
-
-    img {
-      display: block;
-      margin-top: 14vh;
-      transform: translateY(-50%);
-      width: 100%;
-    }
   }
+}
 
-  .message-image {
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    margin: auto;
+.message-image {
+  height: 100%;
+}
 
-    img {
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      margin: auto;
-      max-width: 100%;
-    }
-  }
+.message-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.message-location {
+  font-size: 0.4rem;
+  text-align: center;
 }
