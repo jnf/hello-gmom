@@ -26,7 +26,7 @@ set :bundle_binstubs, nil
 
 ## Defaults:
 # set :scm,           :git
-set :branch,        :master
+set :branch,          :"si-master"
 # set :format,        :pretty
 # set :log_level,     :debug
 set :keep_releases, 3
