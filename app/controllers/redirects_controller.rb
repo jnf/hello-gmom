@@ -2,8 +2,8 @@ class RedirectsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def incoming
-    sender = Sender.from_name(params.fetch("name", nil))
-    path = sender ? show_sender_url(sender.name) : root_url
+    sender = Sender.from_name(params.fetch("name", 'nobody'))
+    path = sender ? show_sender_url(sender.name) : show_url
 
     # tell connected clients to redirect to the new stream
     ActionCable.server.broadcast 'redirects',
