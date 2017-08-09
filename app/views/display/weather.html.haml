@@ -1,6 +1,10 @@
 #videoLoop
-  .notification
-    %h1 New message from Drory!
-    %p Would you like to see it?
+  .notification.message-wrapper
+    .message-sender
+      .sender-image <img src="" alt="">
+      %h1.sender-name New message from <span class="notification-name"></span>!
+    .message-content
+      %p.message-body
+      %p.message-helper An image is attached.
   %video.video{ poster: '/news.jpg', autoplay: 'true', loop: 'true', src: '/news.mp4' }
     %source{ type: 'video/mp4', src: '/news.mp4' }

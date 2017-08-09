@@ -24,8 +24,19 @@ RedirectManager.prototype = {
 
   notify: function (data) {
     var notification = document.querySelector(this.NOTIFICATION)
+    console.log("notify!", data)
 
     if (notification) {
+      var name = notification.querySelector('.notification-name')
+      var image = notification.querySelector('.sender-image img')
+      var body = notification.querySelector('.message-body')
+
+      name.innerText = data.sender.name
+      image.src = data.sender.avatar
+      body.innerText = data.message.body
+
+      console.log(body)
+
       notification.classList.add(this.VISIBLE_CLASS)
     }
   }

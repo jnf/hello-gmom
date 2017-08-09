@@ -16,7 +16,11 @@ class MessagesController < ApplicationController
       sender: message.sender.for_client
 
     # tell weather clients about it
-    ActionCable.server.broadcast 'redirects', action: :notify
+    ActionCable.server.broadcast 'redirects',
+      action: :notify,
+      message: message.for_client,
+      sender: message.sender.for_client
+      
 
     # let the sender know she got it
     render xml: TWIML.thanks

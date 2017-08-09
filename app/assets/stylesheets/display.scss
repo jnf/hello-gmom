@@ -77,15 +77,15 @@ p { margin: 0; }
 
   .notification {
     background: $background-color;
+    border-radius: 5%;
     height: 60%;
     padding: 0.5rem;
     opacity: 0;
     transition: all 0.5s ease;
     width: 30%;
 
-
     position: absolute;
-    top: 5%; right: 0; bottom: 0;
+    top: 3%; right: 0; bottom: 0;
     z-index: 2;
 
     &:after {
@@ -97,20 +97,22 @@ p { margin: 0; }
       width: 0;
 
       position: absolute;
-      right: 0.5rem; bottom: -0.5rem;
+      right: 1rem; bottom: -0.5rem;
     }
 
     &.is-visible {
       opacity: 1;
     }
 
-    h1 {
-      font-size: 1rem;
-      margin: 0;
-    }
-
-    p {
-      font-size: 0.8rem;
+    .sender-image { height: 1.5rem; }
+    .sender-name { font-size: 0.66rem; }
+    .message-content { margin-top: 0.5rem; }
+    .message-body { font-size: 0.66rem; font-style: italic; }
+    .message-helper {
+      font-size: 0.4rem;
+      font-style: italic;
+      position: absolute;
+      bottom: 2%;
     }
   }
 }
