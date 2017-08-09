@@ -15,6 +15,9 @@ class MessagesController < ApplicationController
       message: message.for_client,
       sender: message.sender.for_client
 
+    # tell weather clients about it
+    ActionCable.server.broadcast 'redirects', action: :notify
+
     # let the sender know she got it
     render xml: TWIML.thanks
   rescue Twilio::UnauthorizedError # lolnope

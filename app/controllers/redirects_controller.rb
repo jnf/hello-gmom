@@ -6,7 +6,9 @@ class RedirectsController < ApplicationController
     path = sender ? show_sender_url(sender.name) : root_url
 
     # tell connected clients to redirect to the new stream
-    ActionCable.server.broadcast 'redirects', to: path
+    ActionCable.server.broadcast 'redirects',
+      action: :redirect,
+      to: path
 
     render xml: TWIML.redirect
   rescue Exception => e
