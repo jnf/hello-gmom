@@ -4,13 +4,14 @@
 
 var App = document.App = {}
 document.addEventListener('DOMContentLoaded', function () {
-  // MessageManager controls what's visible
-  var container = document.getElementById('messages')
-  var manager  = new MessageManager(container)
-  var redirector = new RedirectManager()
-
-  // Create websocket connection and pass incoming data to MessageManager
+  let container = document.getElementById('messages')
+  let redirector = new RedirectManager()
+  
   App.cable = ActionCable.createConsumer()
-  App.messages = App.cable.subscriptions.create('MessagesChannel', manager)
   App.redirects = App.cable.subscriptions.create('RedirectsChannel', redirector)
+
+  if (container) {
+    let manager  = new MessageManager(container)
+    App.messages = App.cable.subscriptions.create('MessagesChannel', manager)
+  }
 })
