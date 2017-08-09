@@ -24,6 +24,9 @@ RedirectManager.prototype = {
 
   notify: function (data) {
     var notification = document.querySelector(this.NOTIFICATION)
-    notification.classList.add(this.VISIBLE_CLASS)
+
+    if (notification) {
+      notification.classList.add(this.VISIBLE_CLASS)
+    }
   }
 }
