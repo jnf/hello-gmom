@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'display#show'
+  root 'display#weather'
 
   mount ActionCable.server => '/cable'
 

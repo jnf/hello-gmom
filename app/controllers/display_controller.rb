@@ -11,4 +11,6 @@ class DisplayController < ApplicationController
 
     render :show
   end
+
+  def weather; end
 end
