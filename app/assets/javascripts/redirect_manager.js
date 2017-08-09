@@ -23,7 +23,7 @@ RedirectManager.prototype = {
   },
 
   notify: function (data) {
-    let notification = document.querySelector(this.NOTIFICATION)
+    var notification = document.querySelector(this.NOTIFICATION)
     notification.classList.add(this.VISIBLE_CLASS)
   }
 }
